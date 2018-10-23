@@ -92,6 +92,7 @@ class Organization < ApplicationRecord
 
   def ensure_in_business_value
     return if in_business
+
     self.in_business = UNKNOWN
   end
 end

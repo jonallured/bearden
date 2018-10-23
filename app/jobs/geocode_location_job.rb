@@ -8,6 +8,7 @@ class GeocodeLocationJob < ApplicationJob
   def perform
     location = next_location
     return unless location
+
     geocode(location)
     enqueue_next_job
   end

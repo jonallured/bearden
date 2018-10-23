@@ -23,6 +23,7 @@ class SyncResult
 
   def parts
     return 'n/a' if state == SyncMicroMachine::SKIPPED
+
     "#{uploaded_parts}/#{total_parts}"
   end
 end

@@ -12,6 +12,7 @@ class OrganizationTag < ApplicationRecord
       tag = Tag.find_by name: tag_name.downcase
       raise TagNotFound unless tag
       next if organization.tags.exists?(name: tag.name)
+
       organization.organization_tags.create!(tag: tag)
     end
   end

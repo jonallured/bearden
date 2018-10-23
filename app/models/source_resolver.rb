@@ -9,6 +9,7 @@ class SourceResolver
 
   def resolve
     return if @adjusted_source.save
+
     adjust_ranks
     @adjusted_source.save
   end

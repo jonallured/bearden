@@ -8,6 +8,7 @@ namespace :report do
 
     duplicates = domains.select do |_website, grouped_results|
       next false unless grouped_results.size > 1
+
       grouped_results.map(&:last).uniq.size > 1
     end
 

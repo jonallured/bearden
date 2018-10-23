@@ -50,6 +50,7 @@ class ImportErrors
   def rankeable_errors(details)
     details.flat_map do |field, detail|
       next if overridden_error_fields.include?(field)
+
       errors = detail['content'].pluck('error')
       errors.flat_map { |error| [field, error].join(' ') }
     end
@@ -65,11 +66,13 @@ class ImportErrors
 
   def tag_errors(details)
     return [] unless details.key?('tags')
+
     [details['tags'].split(':').first]
   end
 
   def organization_type_error(details)
     return [] unless details.key?('organization_type')
+
     ['organization type not found']
   end
 end

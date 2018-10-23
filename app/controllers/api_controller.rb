@@ -11,6 +11,7 @@ class ApiController < ApplicationController
   def token_match?
     auth_header = request.headers['HTTP_AUTHORIZATION']
     return false unless auth_header
+
     token = auth_header.split(' ').last
     secret = Rails.application.secrets.artsy_internal_secret
     payload = JWT.decode(token, secret).first
